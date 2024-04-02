@@ -29,9 +29,6 @@ function main() {
     // Iniciando animacion del LifeCounter
     lifeCounterElement.classList.add('heartBeats')
 
-    // Agregando color del estado de salud al lifeCounter
-    // lifeCounterElement.classList.add('lifeCounter--fullHealth')
-
     // Contador de vidas del jugador
     let lifeCounter = 2
 
@@ -87,16 +84,7 @@ function main() {
             if (numeroJugador !== numeroSecreto && lifeCounter > -1) {
 
                 lifeCounterElement.children[lifeCounter].classList.add('hidden')
-                lifeCounter = lifeCounter - 1
-
-                // Background del lifeCounterElement
-                // if (lifeCounter === 0) {
-                //     lifeCounterElement.classList.add('lifeCounter--lowerHealth')
-                // }
-                // else {
-                //     lifeCounterElement.classList.add('lifeCounter--midHealth')
-                //
-                // }
+                lifeCounter--
 
             }
         }
@@ -107,12 +95,7 @@ function main() {
                 ? alert('You Win Madafaka !!! 😎👉👉')
                 : alert('Game over !!! 🥱')
 
-
             lifeCounter = 2
-
-            // Reiniciando el color de estatus de la vida
-            // lifeCounterElement.classList.remove('lifeCounter--lowerHealth')
-            // lifeCounterElement.classList.add('lifeCounter--fullHealth')
 
             // Reiniciando las vidas
             for (let child of lifeCounterElement.children) {
