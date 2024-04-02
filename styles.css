@@ -1,0 +1,162 @@
+:root {
+    --primary: #093975;
+    --bitcoin-orange: #F7931A;
+    --soft-orange: #FFE9D4;
+    --full-health: #00800052;
+    --mid-health: #f7931a7a;
+    --lower-health: #ff00009e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hightlight-text {
+    color: var(--bitcoin-orange);
+    text-shadow: 1px 1px black;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: inline;
+}
+
+.mainMenu {
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 50px;
+}
+
+.mainMenu h1 {
+    display: none;
+    max-width: 50%;
+    text-align: center;
+}
+
+.mainMenu h1 #username {
+    /*color: var(--bitcoin-orange);*/
+    /*text-shadow: 1px 1px black;*/
+}
+
+.startButton {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+
+    border: none;
+    padding: 20px;
+    margin-top: 8rem;
+    width: 200px;
+    height: 50px;
+
+    border-radius: 10px;
+    background-color: var(--bitcoin-orange);
+    color: aliceblue;
+    transform: scale(1);
+    box-shadow: black 0px 0px 0px 0px;
+    user-select: none;
+    cursor: pointer;
+    transition: all 300ms;
+
+}
+
+.startButton:hover {
+    background-color: var(--primary);
+    /*transform: scale(1.05);*/
+    box-shadow: black 4px 4px 0 1px;
+    transition: all 300ms;
+}
+
+.startButton-Start {
+    background-color: var(--bitcoin-orange);
+}
+
+.startButton-Restart {
+    background-color: var(--primary);
+}
+
+.board {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 400px;
+    height: 200px;
+
+    font-size: 1.8rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    max-width: 50%;
+    /*box-shadow: black 4px 4px 16px 1px;*/
+    background-color: rgba(169, 169, 169, 0.05);
+}
+
+.board p {
+    /*font-weight: bold;*/
+    /*color: var(--primary);*/
+}
+
+.board p span {
+    font-size: 2.2rem;
+}
+
+.lifeCounter {
+    margin-top: 50px;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.lifeCounter--fullHealth {
+    background-color: var(--full-health);
+}
+
+.lifeCounter--midHealth {
+    background-color: var(--mid-health);
+}
+
+.lifeCounter--lowerHealth {
+    background-color: var(--lower-health);
+}
+
+.life {
+    font-size: 3.2rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.heartBeats {
+    animation: heartBeat 1s infinite;
+}

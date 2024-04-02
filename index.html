@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Secret Number</title>
+</head>
+<body>
+<div class="mainMenu flex">
+    <h1 id="welcomeMsg">Que honda <span class="hightlight-text" id="username"></span>, juguemos a Adivina el número secreto 😎🔥</h1>
+
+    <button class="startButton flex" id="startButton">Start 🚀</button>
+    <div class="lifeCounter" id="lifeCounter">
+        <span class="life">💖</span>
+        <span class="life">💖</span>
+        <span class="life">💖</span>
+    </div>
+    <div class="board hidden" id="board">
+        <p>El número con que juegas es el: <b><span class="hightlight-text" id="displayedPlayerNumber"></span></b></p>
+        <p>El número secreto es: <b><span class="hightlight-text" id="displayedSecretNumber"></span></b></p>
+    </div>
+</div>
+
+
+</body>
+<script defer src="main.js"></script>
+</html>
