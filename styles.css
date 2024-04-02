@@ -99,7 +99,7 @@ body {
 
 .board {
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     gap: 20px;
 
@@ -118,6 +118,7 @@ body {
 .board p {
     /*font-weight: bold;*/
     /*color: var(--primary);*/
+    /*text-align: justify;*/
 }
 
 .board p span {
