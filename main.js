@@ -5,6 +5,8 @@ function main() {
     const usernameElement = document.getElementById('username')
     const startButtonElement = document.getElementById('startButton')
     const displayedPlayerNumberElement = document.getElementById('displayedPlayerNumber')
+    const displayedSecretNumberContainerElement = document.getElementById('displayedSecretNumberContainer')
+    const displayedSecretNumberPistaElement = document.getElementById('displayedSecretNumberPista')
     const displayedSecretNumberElement = document.getElementById('displayedSecretNumber')
     const boardElement = document.getElementById('board')
     const lifeCounterElement = document.getElementById('lifeCounter')
@@ -32,6 +34,19 @@ function main() {
     // Contador de vidas del jugador
     let lifeCounter = 2
 
+    // Generando el numero secreto
+    let getNumeroSecreto = () => Math.floor(Math.random() * 10 + 1)
+    let numeroSecreto = getNumeroSecreto()
+
+    // Player Status
+    const status = {
+        frio: "🥶 Frío Frío!!!",
+        tibio: "😏 Uff!!! tibiecito",
+        caliente: "🥵 Mammamia!!! calentico",
+        win: "😎🎉 Andas Duro!!"
+    }
+
+
     // Funcion para iniciar el juego
     function startGame() {
 
@@ -45,9 +60,6 @@ function main() {
 
         // Algoritmo del juego
         // Start
-
-        // Generando el numero secreto
-        const numeroSecreto = Math.floor(Math.random() * 10 + 1)
 
         // Obteniendo el número del jugador
         let numeroJugador = prompt("Adivina el numero entre secreto entre el 1 al 10")
@@ -67,8 +79,22 @@ function main() {
         // Imprimiendo en pantalla el numero que elegio el jugador
         displayedPlayerNumberElement.innerText = `${numeroJugador}`
 
-        // Imprimiendo en pantalla el numero secreto
-        displayedSecretNumberElement.innerText = `${numeroSecreto}`
+        // Imprimiendo en pantalla que tan cerca estuvo el jugador
+        const proximidad = Math.abs(numeroJugador - numeroSecreto)
+
+        switch (proximidad) {
+            case 2:
+                displayedSecretNumberPistaElement.innerText = `${status.tibio}`
+                break
+            case 1:
+                displayedSecretNumberPistaElement.innerText = `${status.caliente}`
+                break
+            case 0:
+                displayedSecretNumberPistaElement.innerText = `${status.win}`
+                break
+            default:
+                displayedSecretNumberPistaElement.innerText = `${status.frio}`
+        }
 
         // Actualizando las vidas
         lifeCounterFunc()
@@ -87,6 +113,11 @@ function main() {
                 lifeCounter--
 
             }
+
+            if (numeroJugador === numeroSecreto || lifeCounter === -1) {
+                displayedSecretNumberElement.innerText = `${numeroSecreto}`
+                displayedSecretNumberContainerElement.classList.remove('hidden')
+            }
         }
 
         function restartGame(isWinner) {
@@ -95,9 +126,16 @@ function main() {
                 ? alert('You Win Madafaka !!! 😎👉👉')
                 : alert('Game over !!! 🥱')
 
-            lifeCounter = 2
+            // Ocultando el container del numero secreto
+            displayedSecretNumberContainerElement.classList.add('hidden')
+
+            // Generando un nuevo numero secreto
+            numeroSecreto = getNumeroSecreto()
 
             // Reiniciando las vidas
+            lifeCounter = 2
+
+            // Desocultando las Vidas
             for (let child of lifeCounterElement.children) {
                 child.classList.remove('hidden')
             }
